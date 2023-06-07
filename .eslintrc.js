@@ -4,10 +4,13 @@ module.exports = {
         "es2021": true
     },
     "extends": [
+        "airbnb-base",
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended",
         "plugin:react/recommended"
     ],
+    overrides: [],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": "latest",
@@ -15,8 +18,11 @@ module.exports = {
     },
     "plugins": [
         "@typescript-eslint",
-        "react"
+        "react",
+        "prettier"
     ],
     "rules": {
-    }
-}
+        'import/extensions': 'off',
+        'prettier/prettier': 'error',
+    },
+};
