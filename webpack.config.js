@@ -10,7 +10,8 @@ const baseConfig = {
         rules: [
             {
                 test: /\.css$/i,
-                use: ['style-loader', 'css-loader'],
+                use: ['style-loader', 'ts-loader', 'css-loader'],
+                include: [path.resolve(__dirname, 'src')]
             },
         ],
     },
@@ -18,8 +19,8 @@ const baseConfig = {
         extensions: ['.js'],
     },
     output: {
-        filename: 'index.js',
-        path: path.resolve(__dirname, '../dist'),
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -36,3 +37,5 @@ module.exports = ({ mode }) => {
 
     return merge(baseConfig, envConfig);
 };
+
+
