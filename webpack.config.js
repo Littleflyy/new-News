@@ -9,14 +9,14 @@ const baseConfig = {
     module: {
         rules: [
             {
-                test: /\.css$/i,
+                test: /\.ts$/i, use: 'ts-loader',
                 use: ['style-loader', 'ts-loader', 'css-loader'],
                 include: [path.resolve(__dirname, 'src')]
             },
         ],
     },
     resolve: {
-        extensions: ['.js'],
+        extensions: ['.js', '.ts', '.json'],
     },
     output: {
         filename: 'bundle.js',
