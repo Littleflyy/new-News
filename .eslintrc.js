@@ -1,28 +1,55 @@
 module.exports = {
-    "env": {
-        "browser": true,
-        "es2021": true
+    env: {
+        browser: true,
+        es2021: true
     },
-    "extends": [
-        "airbnb-base",
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:prettier/recommended",
-        "plugin:react/recommended"
+    extends: [
+        'airbnb-base',
+        'eslint:recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:react/recommended',
+        'plugin:prettier/recommended',
     ],
     overrides: [],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaVersion": "latest",
-        "sourceType": "module"
+    parser: "@typescript-eslint/parser",
+    parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module", 
+        project: './tsconfig.json',
     },
-    "plugins": [
+    plugins: [
         "@typescript-eslint",
-        "react",
         "prettier"
     ],
-    "rules": {
+    root: true,
+    rules: {
         'import/extensions': 'off',
         'prettier/prettier': 'error',
+        'import/prefer-default-export': 'off',
+        '@typescript-eslint/no-explicit-any': 'error',
+        '@typescript-eslint/no-inferrable-types': 'off',
+        '@typescript-eslint/array-type': [
+            'error',
+            {
+                default: 'array',
+            }
+        ],
+        '@typescript-eslint/explicit-member-accessibility': [
+            'error',
+            {
+                accessibility: 'explicit',
+                overrides: {
+                    accessors: 'explicit',
+                    constructors: 'off',
+                    methods: 'explicit',
+                    properties: 'explicit',
+                    parameterProperties: 'explicit',
+                },
+            },
+        ],
+        'max-lines-per-function': ['error', 40],
+        '@typescript-eslint/explicit-function-return-type': 'error',
+        '@typescript-eslint/no-unnecessary-type-assertion': 'error',
+        '@typescript-eslint/no-non-null-assertion': 'error',
     },
 };
